@@ -47,10 +47,10 @@ def ai_request(message:str):
                                 ]
                                 }
 
-                        return reply
+                        return jsonify(reply)
                     raise ValueError("Error conjunto vacío")
     except:
-        {
+        reply = {
             "fulfillmentMessages":[
                 {
                     "text": 
@@ -62,6 +62,7 @@ def ai_request(message:str):
                 }
                 ]
         }
+        return jsonify(reply)
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
