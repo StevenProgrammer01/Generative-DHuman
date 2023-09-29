@@ -72,7 +72,7 @@ def webhook():
     # Obtiene los datos JSON de la solicitud POST
     data = request.get_json()
     message= data["queryResult"]["queryText"]
-    ai_request(message)
+    return ai_request(message)
 
     # Realiza alguna lógica con los datos
     # En este ejemplo, simplemente devolvemos los datos recibidos
