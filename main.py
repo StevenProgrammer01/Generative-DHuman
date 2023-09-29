@@ -1,7 +1,7 @@
 import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+ngrok_url = requests.get('http://localhost:4040/api/tunnels').json()['tunnels'][0]['public_url']
 def ai_request(message:str):
     print(message)
     
@@ -78,4 +78,4 @@ def webhook():
     # En este ejemplo, simplemente devolvemos los datos recibidos
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
