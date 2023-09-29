@@ -70,7 +70,7 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 def webhook():
     # Obtiene los datos JSON de la solicitud POST
     data = request.get_json()
-    message= request["queryResult"]["queryText"]
+    message= data["queryResult"]["queryText"]
     ai_request(message)
 
     # Realiza alguna lógica con los datos
