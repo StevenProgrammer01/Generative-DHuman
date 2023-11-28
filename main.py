@@ -10,7 +10,7 @@ def webhook():
     handler = APIHandler()
     # Obtiene los datos JSON de la solicitud POST
     data = request.get_json()
-    message= data["text"]
+    message= data["queryResult"]["queryText"]
 
     aiResponse = handler.ai_request(message)
     return jsonify(aiResponse)
